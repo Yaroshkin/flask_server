@@ -6,7 +6,7 @@ bot_token = '6231927872:AAEJP7VLniSrRUJHA9g1U9deqxSkDJNUDzk'  # Замените
 bot = TeleBot(bot_token)
 
 def send_message_to_telegram(name, phone, email, message):
-    chat_id = '599486116'  # Замените на ваш Chat ID
+    chat_id = '-901537214'  # Замените на ваш Chat ID
     text = f'Имя: {name}\nТелефон: {phone}\nEmail: {email}\nСообщение: {message}'
     bot.send_message(chat_id, text)
 
