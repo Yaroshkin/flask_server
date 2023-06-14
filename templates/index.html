@@ -3,10 +3,16 @@
 <head>
     <title>Мой лендинг</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <script src="{{ url_for('static', filename='js/myjs.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <style>
+        .jumbotron-transparent {
+            background-color: transparent !important;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -33,7 +39,7 @@
 </nav>
 
 
-    <header class="jumbotron">
+    <header class="jumbotron jumbotron-transparent">
         <div class="container">
             <h1 class="display-4">Добро пожаловать!</h1>
             <p class="lead">Мы предоставляем качественные услуги для вас.</p>
