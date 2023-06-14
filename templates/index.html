@@ -3,51 +3,34 @@
 <head>
     <title>Мой лендинг</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/myjs.js') }}"></script>
     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-    <script>
-        function submitForm() {
-            var name = document.getElementById('name').value;
-            var email = document.getElementById('email').value;
-            var phone = document.getElementById('phone').value;
-            var message = document.getElementById('message').value;
-
-            document.getElementById('name').value = '';
-            document.getElementById('email').value = '';
-            document.getElementById('phone').value = '';
-            document.getElementById('message').value = '';
-
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', '/contact', true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.send('name=' + encodeURIComponent(name) + '&email=' + encodeURIComponent(email) + '&phone=' + encodeURIComponent(phone) + '&message=' + encodeURIComponent(message));
-
-            alert('Сообщение отправлено!');
-        }
-    </script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">Мой лендинг</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">О нас</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Услуги</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Контакты</a>
-                    </li>
-                </ul>
-            </div>
+    <div class="container">
+        <a class="navbar-brand" href="#">Мой лендинг</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link custom-link" href="#about">О нас</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link custom-link" href="#services">Услуги</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link custom-link" href="#contact">Контакты</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
+
 
     <header class="jumbotron">
         <div class="container">
@@ -57,44 +40,44 @@
         </div>
     </header>
 
-    <section id="about" class="py-5">
-        <div class="container">
-            <h2>О нас</h2>
-            <p>Мы команда профессионалов, специализирующаяся на предоставлении лучших услуг для наших клиентов.</p>
-        </div>
-    </section>
+    <section id="about" class="py-5 bg-transparent">
+    <div class="container">
+        <h2>О нас</h2>
+        <p>Мы команда профессионалов, специализирующаяся на предоставлении лучших услуг для наших клиентов.</p>
+    </div>
+</section>
 
-    <section id="services" class="py-5 bg-light">
-        <div class="container">
-            <h2>Услуги</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Web-разработка</h5>
-                            <p class="card-text">Мы разрабатываем красивые и функциональные веб-сайты.</p>
-                        </div>
+<section id="services" class="py-5 bg-light bg-transparent">
+    <div class="container">
+        <h2>Услуги</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body bg-transparent">
+                        <h5 class="card-title">Web-разработка</h5>
+                        <p class="card-text">Мы разрабатываем красивые и функциональные веб-сайты.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Мобильные приложения</h5>
-                            <p class="card-text">Мы создаем интуитивно понятные мобильные приложения для разных платформ.</p>
-                        </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body bg-transparent">
+                        <h5 class="card-title">Мобильные приложения</h5>
+                        <p class="card-text">Мы создаем интуитивно понятные мобильные приложения для разных платформ.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Цифровой маркетинг</h5>
-                            <p class="card-text">Мы помогаем вашему бизнесу привлекать больше клиентов через эффективные маркетинговые стратегии.</p>
-                        </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body bg-transparent">
+                        <h5 class="card-title">Цифровой маркетинг</h5>
+                        <p class="card-text">Мы помогаем вашему бизнесу привлекать больше клиентов через эффективные маркетинговые стратегии.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
    <section id="contact" class="py-5">
     <div class="container">

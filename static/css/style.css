@@ -1,0 +1,45 @@
+
+body {
+      background-image: url("/static/images/image5-2.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+    color: white;
+      /* Другие стили */
+    }
+.form-control, .custom-link {
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid white;
+        color: white;
+    }
+
+.jumbotron {
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+        text-align: center;
+        padding: 5rem;
+}
+.card {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+}
+
+.card-body {
+    background-color: transparent;
+    color: #fff;
+}
+
+/* Стили для input */
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="tel"]::placeholder {
+    color: white;
+}
+
+textarea#message::placeholder {
+    color: white;
+}
+
+
