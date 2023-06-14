@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Мой лендинг</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script>
+        function submitForm() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+            var message = document.getElementById('message').value;
+
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('message').value = '';
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/contact', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send('name=' + encodeURIComponent(name) + '&email=' + encodeURIComponent(email) + '&phone=' + encodeURIComponent(phone) + '&message=' + encodeURIComponent(message));
+
+            alert('Сообщение отправлено!');
+        }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Мой лендинг</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">О нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Услуги</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Контакты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="jumbotron">
+        <div class="container">
+            <h1 class="display-4">Добро пожаловать!</h1>
+            <p class="lead">Мы предоставляем качественные услуги для вас.</p>
+            <a class="btn btn-primary btn-lg" href="#contact" role="button">Свяжитесь с нами</a>
+        </div>
+    </header>
+
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2>О нас</h2>
+            <p>Мы команда профессионалов, специализирующаяся на предоставлении лучших услуг для наших клиентов.</p>
+        </div>
+    </section>
+
+    <section id="services" class="py-5 bg-light">
+        <div class="container">
+            <h2>Услуги</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Web-разработка</h5>
+                            <p class="card-text">Мы разрабатываем красивые и функциональные веб-сайты.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Мобильные приложения</h5>
+                            <p class="card-text">Мы создаем интуитивно понятные мобильные приложения для разных платформ.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Цифровой маркетинг</h5>
+                            <p class="card-text">Мы помогаем вашему бизнесу привлекать больше клиентов через эффективные маркетинговые стратегии.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <section id="contact" class="py-5">
+    <div class="container">
+        <h2>Контакты</h2>
+        <p>Свяжитесь с нами для получения дополнительной информации.</p>
+        <div id="alert" class="alert alert-success" style="display: none;"></div>
+        <form>
+            <div class="form-group">
+                <label for="name">Имя</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Введите ваше имя">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Введите ваш email">
+            </div>
+            <div class="form-group">
+                <label for="phone">Телефон</label>
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Введите номер телефона">
+            </div>
+            <div class="form-group">
+                <label for="message">Сообщение</label>
+                <textarea class="form-control" id="message" name="message" rows="5" placeholder="Введите ваше сообщение"></textarea>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="submitForm()">Отправить</button>
+        </form>
+    </div>
+</section>
+
+    <footer class="py-4 bg-dark text-white text-center">
+        <div class="container">
+            &copy; 2023 Мой лендинг. Все права защищены.
+        </div>
+    </footer>
+</body>
+</html>
