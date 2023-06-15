@@ -66,3 +66,38 @@ function submitForm() {
 
     alert('Сообщение отправлено!');
 }
+$(document).ready(function () {
+        // Активація каруселі
+        $('#service-carousel').carousel();
+
+        // Зміна активного елемента каруселі кожні 4 секунди
+        setInterval(function () {
+            $('#service-carousel').carousel('next');
+        }, 4000);
+    });
+// Выберите элемент с текстом
+var element = document.querySelector('.fade-in');
+
+// Функция для проверки, виден ли элемент на экране
+function isElementInViewport(el) {
+  var rect = el.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
+// Функция, которая будет вызываться при прокрутке страницы
+function checkFade() {
+  if (isElementInViewport(element)) {
+    element.classList.add('fade-in');
+    window.removeEventListener('scroll', checkFade);
+  }
+}
+
+// Запустите проверку при загрузке страницы и при прокрутке
+window.addEventListener('load', checkFade);
+window.addEventListener('scroll', checkFade);
+

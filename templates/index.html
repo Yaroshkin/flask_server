@@ -1,126 +1,135 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Разроботка</title>
+    <title>RevolutionCode</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <!-- Підключення необхідних скриптів -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <script src="{{ url_for('static', filename='js/myjs.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/myjs.js') }}"></script>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.png') }}">
     <style>
         .jumbotron-transparent {
             background-color: transparent !important;
         }
     </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-   <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-        <div class="container">
-            <a class="navbar-brand text-white" href="#">Мой лендинг</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link custom-link text-white" href="#about">О нас</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link custom-link text-white" href="#services">Услуги</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link custom-link text-white" href="#contact">Контакты</a>
-                    </li>
-                </ul>
+    <div>
+           <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <div class="container">
+                    <a class="navbar-brand text-white" href="#">RevolutionCode</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link custom-link text-white" href="#about">Про нас</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link custom-link text-white" href="#services">Послуги</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link custom-link text-white" href="#contact">Контакти</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <header class="jumbotron jumbotron-transparent">
+                <div class="container">
+                    <h1 class="display-4">Revolution Code</h1>
+                    <p class="lead">Якість на рівні!</p>
+                    <a id="bot1" class="btn btn-primary btn-lg link-animated" href="#contact" role="button">Зв'язатись з нами</a>
+                </div>
+            </header>
+
+        <section id="about" class="py-5 bg-transparent fade-in">
+            <div class="container">
+                <h2 class="fade-in">Про нас</h2>
+                <p class="fade-in" style="font-size: 1.3rem">Ми команда розробників, яка втілить ваші бажання в світ IT. Наші фахівці готові створити якісні та функціональні рішення, що відповідають усім вимогам та потребам наших клієнтів. Частину прибутку передаємо на допомогу нашим захисникам!💪
+                   <br>Звертайтеся до нас і ми з радістю допоможемо вам з реалізацією вашого проекту!</p>
             </div>
-        </div>
-    </nav>
-
-
-
-
-    <header class="jumbotron jumbotron-transparent">
-        <div class="container">
-            <h1 class="display-4">Добро пожаловать!</h1>
-            <p class="lead">Мы предоставляем качественные услуги для вас.</p>
-            <a class="btn btn-primary btn-lg link-animated" href="#contact" role="button">Свяжитесь с нами</a>
-        </div>
-    </header>
-
-    <section id="about" class="py-5 bg-transparent">
-    <div class="container">
-        <h2>О нас</h2>
-        <p>Мы команда профессионалов, специализирующаяся на предоставлении лучших услуг для наших клиентов.</p>
-    </div>
-</section>
-
-<section id="services" class="py-5 bg-light bg-transparent">
-    <div class="container">
-        <h2>Услуги</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body bg-transparent">
-                        <h5 class="card-title">Web-разработка</h5>
-                        <p class="card-text">Мы разрабатываем красивые и функциональные веб-сайты.</p>
+        </section>
+        <section id="services" class="py-5 bg-light bg-transparent fade-in">
+            <div class="container">
+                <h2 class="fade-in">Послуги</h2>
+                <div id="service-carousel" class="row carousel slide" data-ride="carousel" data-interval="4000">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="col-md-4 mx-auto">
+                                <div class="card">
+                                    <div class="card-body bg-transparent">
+                                        <h5 class="card-title">Web-розробка</h5>
+                                        <p class="card-text">Ми розробляємо функціональні рішення під різні напрямки. Ми можемо створити веб-додатки, сайти, лендінги та інші веб-рішення, що відповідають вашим потребам і вимогам.</p>
+                                        <div class="card-footer"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="col-md-4 mx-auto">
+                                <div class="card">
+                                    <div class="card-body bg-transparent">
+                                        <h5 class="card-title">Telegram-розробка</h5>
+                                        <p class="card-text">Ми спеціалізуємось на розробці Telegram-ботів, які є інтуїтивно зрозумілими та ефективно працюють. Також ми здійснюємо написання скриптів для автоматизації дій в Telegram.</p>
+                                        <div class="card-footer"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="col-md-4 mx-auto">
+                                <div class="card">
+                                    <div class="card-body bg-transparent">
+                                        <h5 class="card-title">Парсинг та автоматиція</h5>
+                                        <p class="card-text">Парсинг та автоматизація? Наші експерти здатні розробити скрипти, які забезпечать автоматичне виконання рутинних завдань у браузері та здійснювати збір даних з веб-сторінок.</p>
+                                        <div class="card-footer"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body bg-transparent">
-                        <h5 class="card-title">Мобильные приложения</h5>
-                        <p class="card-text">Мы создаем интуитивно понятные мобильные приложения для разных платформ.</p>
+        </section>
+        <section id="contact" class="py-5">
+            <div class="container">
+                <h2>Контакти</h2>
+                <p>Звяжіться з нами для отримання додаткової інформації.</p>
+                <div id="alert" class="alert alert-success" style="display: none;"></div>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Ім'я</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Введіть Ваше Ім'я">
                     </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body bg-transparent">
-                        <h5 class="card-title">Цифровой маркетинг</h5>
-                        <p class="card-text">Мы помогаем вашему бизнесу привлекать больше клиентов через эффективные маркетинговые стратегии.</p>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Введіть email">
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Введіть номер телефона">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Введіть, що необхідно зробити:</label>
+                        <textarea class="form-control" id="message" name="message" rows="5" placeholder="Введіть Ваше повідомлення"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-animated" onclick="submitForm()">Відправити</button>
+                </form>
             </div>
-        </div>
+        </section>
+        <footer class="py-4 bg-dark text-white text-center bg-transparent fade-in">
+            <div class="container">
+                &copy; 2023 RevolutionCode.
+            </div>
+        </footer>
     </div>
-</section>
-
-<section id="contact" class="py-5">
-    <div class="container">
-        <h2>Контакты</h2>
-        <p>Свяжитесь с нами для получения дополнительной информации.</p>
-        <div id="alert" class="alert alert-success" style="display: none;"></div>
-        <form>
-            <div class="form-group">
-                <label for="name">Имя</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Введите ваше имя">
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Введите ваш email">
-            </div>
-            <div class="form-group">
-                <label for="phone">Телефон</label>
-                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Введите номер телефона">
-            </div>
-            <div class="form-group">
-                <label for="message">Введите, что необходимо сделать:</label>
-                <textarea class="form-control" id="message" name="message" rows="5" placeholder="Введите ваше сообщение"></textarea>
-            </div>
-            <button type="button" class="btn btn-primary btn-animated" onclick="submitForm()">Отправить</button>
-        </form>
-    </div>
-</section>
-
-
-    <footer class="py-4 bg-dark text-white text-center bg-transparent">
-        <div class="container">
-            &copy; 2023 Мой лендинг. Все права защищены.
-        </div>
-    </footer>
 </body>
 </html>
