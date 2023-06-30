@@ -126,7 +126,6 @@ textarea#message::placeholder {
 #bot1{
     border: none;
 }
-
 .visit {
     font-size: 10px; /* Измените размер текста на ваше усмотрение */
     text-align: right; /* Сдвигаем текст вправо */
