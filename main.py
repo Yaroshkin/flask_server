@@ -1,3 +1,4 @@
+import requests
 from telebot import TeleBot
 from flask import Flask, render_template, request, jsonify
 
@@ -12,10 +13,22 @@ def send_message_to_telegram(name, phone, email, message):
     text = f'Имя: {name}\nТелефон: {phone}\nEmail: {email}\nСообщение: {message}'
     bot.send_message(chat_id, text)
 
+def get_external_ip():
+    try:
+        response = requests.get('https://api.ipify.org?format=json')
+        if response.status_code == 200:
+            data = response.json()
+            external_ip = data['ip']
+            return external_ip
+        else:
+            print('Failed to retrieve external IP')
+    except requests.exceptions.RequestException as e:
+        print('Error: ', e)
+
 @app.route('/')
 def home():
     global visits
-    ip_address = request.remote_addr  # Получаем IP-адрес текущего посетителя
+    ip_address = get_external_ip()  # Получаем внешний IP-адрес текущего посетителя
 
     if ip_address not in visits:
         visits.add(ip_address)  # Добавляем нового посетителя в множество
@@ -46,4 +59,3 @@ def get_ip_addresses():
 if __name__ == '__main__':
     bot.remove_webhook()
     app.run()
-
