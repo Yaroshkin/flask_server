@@ -52,8 +52,9 @@ def contact():
 @app.route('/get_ip_addresses')
 def get_ip_addresses():
     with open('ip_addresses.txt', 'r') as file:
-        ip_addresses = file.read()
-    return ip_addresses
+        ip_addresses = file.readlines()
+    return "<br>".join(ip_addresses)
+
 
 
 if __name__ == '__main__':
