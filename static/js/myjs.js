@@ -1,11 +1,11 @@
 function submitForm() {
     var nameInput = document.getElementById('name');
-    var emailInput = document.getElementById('email');
+    // var emailInput = document.getElementById('email');
     var phoneInput = document.getElementById('phone');
     var messageInput = document.getElementById('message');
 
     var name = nameInput.value;
-    var email = emailInput.value;
+    // var email = emailInput.value;
     var phone = phoneInput.value;
     var message = messageInput.value;
 
@@ -20,14 +20,14 @@ function submitForm() {
         nameInput.removeAttribute('placeholder');
     }
 
-    if (email.trim() === '') {
-        emailInput.style.borderColor = 'red';
-        emailInput.setAttribute('placeholder', 'Поле обязательно для ввода');
-        isValid = false;
-    } else {
-        emailInput.style.borderColor = '';
-        emailInput.removeAttribute('placeholder');
-    }
+    // if (email.trim() === '') {
+    //     emailInput.style.borderColor = 'red';
+    //     emailInput.setAttribute('placeholder', 'Поле обязательно для ввода');
+    //     isValid = false;
+    // } else {
+    //     emailInput.style.borderColor = '';
+    //     emailInput.removeAttribute('placeholder');
+    // }
 
     if (phone.trim() === '') {
         phoneInput.style.borderColor = 'red';
@@ -56,11 +56,11 @@ function submitForm() {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/contact', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.send('name=' + encodeURIComponent(name) + '&email=' + encodeURIComponent(email) + '&phone=' + encodeURIComponent(phone) + '&message=' + encodeURIComponent(message));
+    xhr.send('name=' + encodeURIComponent(name) + '&phone=' + encodeURIComponent(phone) + '&message=' + encodeURIComponent(message));
 
     // Сброс только обязательных полей
     nameInput.value = '';
-    emailInput.value = '';
+    // emailInput.value = '';
     phoneInput.value = '';
     messageInput.value = '';
 
@@ -101,3 +101,43 @@ function checkFade() {
 window.addEventListener('load', checkFade);
 window.addEventListener('scroll', checkFade);
 
+function openPopup() {
+    document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+
+function submitPopupForm() {
+    var nameInput = document.getElementById('popup-name');
+    // var emailInput = document.getElementById('popup-email');
+    var phoneInput = document.getElementById('popup-phone');
+    var messageInput = document.getElementById('popup-message');
+
+    var name = nameInput.value;
+    // var email = emailInput.value;
+    var phone = phoneInput.value;
+    var message = messageInput.value;
+
+    // Проверка заполненности всех полей
+    if (name.trim() === '' || phone.trim() === '' || message.trim() === '') {
+        alert('Пожалуйста, заполните все поля');
+        return;
+    }
+
+    // Отправка данных формы в Telegram бота или другую обработку
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/contact', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send('name=' + encodeURIComponent(name) +  '&phone=' + encodeURIComponent(phone) + '&message=' + encodeURIComponent(message));
+
+    // Сброс полей формы
+    nameInput.value = '';
+    // emailInput.value = '';
+    phoneInput.value = '';
+    messageInput.value = '';
+
+    // Закрытие попапа
+    closePopup();
+}

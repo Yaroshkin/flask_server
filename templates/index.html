@@ -46,7 +46,7 @@
                 <div class="container">
                     <h1 class="display-4">Revolution Code</h1>
                     <p class="lead">Якість на рівні!</p>
-                    <a id="bot1" class="btn btn-primary btn-lg link-animated" href="#contact" role="button">Зв'язатись з нами</a>
+                    <a id="bot1" class="btn btn-primary btn-lg link-animated" href="javascript:void(0)" onclick="openPopup()">Зв'язатись з нами</a>
                 </div>
             </header>
 
@@ -109,10 +109,10 @@
                         <label for="name">Ім'я</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Введіть Ваше Ім'я">
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Введіть email">
-                    </div>
+{#                    <div class="form-group">#}
+{#                        <label for="email">Email</label>#}
+{#                        <input type="email" class="form-control" id="email" name="email" placeholder="Введіть email">#}
+{#                    </div>#}
                     <div class="form-group">
                         <label for="phone">Телефон</label>
                         <input type="tel" class="form-control" id="phone" name="phone" placeholder="Введіть номер телефона">
@@ -131,5 +131,32 @@
             </div>
         </footer>
     </div>
+    <div class="popup-overlay" id="popup">
+    <div class="popup-content">
+        <h3>Форма связи</h3>
+        <form id="popup-form">
+            <div class="form-group">
+                <label for="popup-name">Ім'я</label>
+                <input type="text" class="form-control" id="popup-name" name="popup-name" placeholder="Введіть Ваше Ім'я">
+            </div>
+{#            <div class="form-group">#}
+{#                <label for="popup-email">Email</label>#}
+{#                <input type="email" class="form-control" id="popup-email" name="popup-email" placeholder="Введіть email">#}
+{#            </div>#}
+            <div class="form-group">
+                <label for="popup-phone">Телефон</label>
+                <input type="tel" class="form-control" id="popup-phone" name="popup-phone" placeholder="Введіть номер телефона">
+            </div>
+            <div class="form-group">
+                <label for="popup-message">Введіть, що необхідно зробити:</label>
+                <textarea class="form-control" id="popup-message" name="popup-message" rows="5" placeholder="Введіть Ваше повідомлення"></textarea>
+            </div>
+            <button type="button" class="btn btn-primary btn-animated" onclick="submitPopupForm()">Відправити</button>
+        </form>
+        <button class="close" onclick="closePopup()">&times;</button>
+    </div>
+</div>
+
+
 </body>
 </html>
